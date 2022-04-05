@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>{% block title %}Signup Page{% endblock %}</title>
+    {% endblock %}
+</head>
+
+<body class="bg-gradient-primary">
+    {% block content %}
+    <br>
+    <div class="container">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-5 d-none d-lg-block">
+               <img src="{{url_for('static', filename='image/mp.png')}}" height="400" width="440">
+            </div>
+            <div class="col-lg-7">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                </div>
+
+                <form action="" class="user" data-toggle="validator"method="POST">
+                  {{ form.hidden_tag() }} 
+
+                  {{ form.index(class='form-control')}}
+                  <br>
+
+                  {{ form.username(class='form-control')}}
+                  <br />
+
+                  {{ form.email(class='form-control') }}
+                  <br />
+
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      {{ form.password(class='form-control') }}
+                    </div>
+
+                    <div class="col-sm-6">
+                      {{ form.confirm_password(class='form-control') }}
+                    </div>
+                  </div>
+                  
+                  <!-- <br /> -->
+                  {{ form.submit(class='btn btn-primary btn-user btn-block') }}
+                </form>
+                <br />
+                <div class="text-center">
+                  <a class="small" href="{{ url_for('authent.login')}}">Already have an account? Login!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

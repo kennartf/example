@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>{% block title %}Login Page{% endblock %}</title>
+    {% endblock %}
+</head>
+<body class="bg-gradient-primary">
+    {% block content %}
+    <br>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
+                <div class="col-lg-6 d-none d-lg-block">
+                  <img src="{{url_for('static', filename='image/mp.png')}}" height="380" width="440">
+                </div>
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-4"><strong>Login</strong></h1>
+                    </div>
+                    <form action="#" method="POST">
+                      {{ form.hidden_tag() }} 
+                      {{ form.email(class='form-control') }}
+                      <br />
+                      {{ form.password(class='form-control') }}
+                      <br />
+                      {{ form.submit(class='btn btn-primary btn-user btn-block') }}
+                    </form>
+                    <br>
+                    <div class="text-center"><a class="small" href="{{ url_for('authent.signup')}}">
+                        Create an Account!</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
